@@ -12,7 +12,7 @@ const HomePage = () => {
       if (storageState) {
         setPizzasList(JSON.parse(storageState))
       }
-    })
+    }, [])
 
   const addPizza = (newPizza: Pizza) => {
     const addedPizzaList = [...pizzasList, newPizza]
