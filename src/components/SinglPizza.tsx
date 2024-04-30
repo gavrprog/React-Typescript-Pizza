@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react'
 import { AiFillEdit, AiFillDelete } from "react-icons/ai"
+import { Link } from 'react-router-dom'
 import EditPizzaForm from './EditPizzaForm'
 import Pizza from '../models/Pizza'
 
@@ -24,7 +25,11 @@ const SinglPizza: FC<SinglPizzaProps> = ({ pizza, updatePizza, deletePizza }) =>
     return (
     <div className="pizza">
         <img src={`./images/${pizza.img}`} alt={pizza.title} />
-        <h2>{pizza.title}</h2>
+        <h2>
+            <Link to={`/pizza/${pizza.id}`}>
+                {pizza.title}
+            </Link>
+        </h2>
         <span>{pizza.price} ₴</span>
         <div className="pizza-controls">
             <AiFillEdit onClick={hadleToggleEdit}/>
